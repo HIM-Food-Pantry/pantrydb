@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_field %}
+
+
+{% block title %}{{ block.super }}About{% endblock %}
+
+{% block navbar-left %}
+    {% include "_navbar.html" with active_link="volunteer-sign-in-log" %}
+{% endblock %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+
+    <div id="sec1" class="text-page">
+        <div class="container">
+            {% crispy form %}
+        </div>
+
+    </div>
+
+
+{% endblock container %}
+

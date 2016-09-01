@@ -1,0 +1,3 @@
+<li {% if active_link == "home" %}class="active"{% endif %}><a href="{% url 'home' %}">Home</a></li>
+<li {% if active_link == "volunteers:sign-in-sheet" %}class="active"{% endif %}><a
+        href="{% url 'volunteers:sign-in-sheet' %}">Volunteer</a></li>

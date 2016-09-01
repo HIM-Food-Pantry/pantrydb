@@ -1,0 +1,6 @@
+source ~/.bashrc
+source ~/.bash_profile
+export PYTHONPATH=~/.virtualenvs/him_pantry_db/lib/python3.5/site-packages
+source ~/.virtualenvs/him_pantry_db/bin/activate
+cd ./src
+export DOCKER_MACHINE_IP=$(docker-machine ip)

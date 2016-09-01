@@ -1,0 +1,44 @@
+{% if signed_in_volunteers %}
+    <table class="table table-striped" style="width:100%">
+        <thead>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Log Out</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for volunteer_log in signed_in_volunteers %}
+            <tr>
+                <form method="post">
+                    {% csrf_token %}
+                    <td>
+                        {{ volunteer_log.volunteer.first_name }}
+                        <input class="textinput textInput form-control" maxlength="100" type="hidden"
+                               id="id_sign_out-first_name"
+                               name="sign_out-first_name"
+                               value="{{ volunteer_log.volunteer.first_name }}">
+
+                    </td>
+                    <td>{{ volunteer_log.volunteer.last_name }}
+                        <input class="textinput textInput form-control" maxlength="100" type="hidden"
+                               id="id_sign_out-last_name"
+                               name="sign_out-last_name"
+                               value="{{ volunteer_log.volunteer.last_name }}">
+
+                    </td>
+                    <td>
+                        <input type="submit" name="save" value="Submit" class="btn btn-primary"
+                               id="submit-id-save">
+                    </td>
+                </form>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% else %}
+    <p>No volunteers are currently signed in.</p>
+{% endif %}

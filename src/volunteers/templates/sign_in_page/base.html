@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_field %}
+
+
+{% block title %}{{ block.super }}About{% endblock %}
+
+{% block navbar-left %}
+    {% include "_navbar.html" with active_link="sign-in-sheet" %}
+{% endblock %}
+
+<!-- Benefits of the Django application -->
+{% block container %}
+    <div>
+        <div id="sec1" class="text-page">
+            <div class="container">
+                <h3>Log Out</h3>
+                <p>Find your name and click the logout button</p>
+                <div class="well">
+                    {% include "sign_in_page/sign_out.html" %}
+                </div>
+            </div>
+        </div>
+
+        <div id="sec2" class="text-page">
+            <div class="container">
+                <h3>Log In</h3>
+                <p>Click one of the tabs below and choose a log in option</p>
+                {% include "sign_in_page/sign_in.html" %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock container %}
+

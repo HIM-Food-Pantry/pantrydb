@@ -1,0 +1,18 @@
+output-format: grouped
+
+ignore-paths:
+  - src/him_database/settings
+  - scripts
+
+test-warnings: true
+doc-warnings: true
+
+pylint:
+  process: 4
+
+pep257:
+  disable:
+    - D203
+
+uses:
+    - django
