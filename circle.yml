@@ -20,9 +20,9 @@ dependencies:
 
 test:
   pre:
-    - docker-compose -f docker-compose.test.yml up -d
+    - docker-compose -d
   override:
-    - docker-compose -f docker-compose.test.yml run django test
+    - docker-compose run django test
 
 
 deployment:
