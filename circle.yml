@@ -20,7 +20,7 @@ dependencies:
 
 test:
   pre:
-    - docker-compose -d
+    - docker-compose up -d
   override:
     - docker-compose run django test
 
