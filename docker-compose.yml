@@ -22,6 +22,7 @@ services:
     volumes:
       - /etc/nginx/conf.d
       - /usr/share/nginx/html
+      - /him_database/nginx/logs:/var/log/nginx:rw
     links:
       - django:django
     networks:

@@ -22,6 +22,7 @@ services:
       - /etc/nginx/conf.d
       - /usr/share/nginx/html
       - /him_database/letsencrypt/certs:/etc/nginx/certs:ro
+      - /him_database/nginx/logs:/var/log/nginx:rw
     links:
       - django:django
     networks:
