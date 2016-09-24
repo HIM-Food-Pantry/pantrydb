@@ -1,5 +1,4 @@
 version: '2'
-
 services:
   postgres:
     image: kiasaki/alpine-postgres:9.5
@@ -45,6 +44,8 @@ services:
     build: .
     container_name: django
     image: himfoodpantry/pantrydb
+    volumes:
+      - /him_database/django/logs:/django/logs:rw
     environment:
       - VIRTUAL_HOST=dm.com
       - VIRTUAL_PORT=8000

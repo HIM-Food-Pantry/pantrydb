@@ -1,7 +1,6 @@
 # In production set the environment variable like this:
 #    DJANGO_SETTINGS_MODULE=him_client_database.settings.production
 import logging.config
-import sys
 
 from .base import *  # NOQA
 
@@ -41,19 +40,42 @@ LOGFILE_ROOT = join(dirname(BASE_DIR), 'logs')
 # Reset logging
 LOGGING_CONFIG = None
 LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "console": {
-            "level": "DEBUG",
-            "class": "logging.StreamHandler",
-            'stream': sys.stdout
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(levelname)s] %(name)s: %(message)s'
         },
     },
-    "loggers": {
-        "django": {
-            "handlers": ["console"],
-        }
+    'handlers': {
+        'default': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': join(LOGFILE_ROOT, 'project.log'),
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+        'request_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': join(LOGFILE_ROOT, 'project.log'),
+            'maxBytes': 1024 * 1024 * 5,  # 5 MB
+            'backupCount': 5,
+            'formatter': 'standard',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['default'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+        'django.request': {  # Stop SQL debug from logging to main logger
+            'handlers': ['request_handler'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
     }
 }
 

@@ -48,6 +48,8 @@ services:
     env_file: .env
     container_name: django
     domainname: db.himfoodpantry.org
+    volumes:
+      - /him_database/django/logs:/django/logs:rw
     environment:
       - VIRTUAL_HOST=db.himfoodpantry.org
       - VIRTUAL_PORT=8000

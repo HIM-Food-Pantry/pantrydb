@@ -6,10 +6,9 @@ ENV INSTALL_PATH=/django/ \
     SECRET_KEY="u8!7cbl_=e-2o=&513r^*nj)b+yqkd^tb2w^e1b3h93a)h14tv" \
     # syntax: DATABASE_URL=postgres://username:password@127.0.0.1:5432/database
     DATABASE_URL="postgres://postgres:postgrest@postgrest:5432/postgress" \
-    LOG_DIR=/him_db/logs \
     ALLOWED_HOSTS='*'
 
-RUN mkdir $INSTALL_PATH /deploy
+RUN mkdir $INSTALL_PATH /deploy $INSTALL_PATH/logs
 
 WORKDIR $INSTALL_PATH
 
