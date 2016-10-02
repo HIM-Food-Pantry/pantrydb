@@ -8,8 +8,8 @@ https://docs.djangoproject.com/en/1.9/howto/deployment/wsgi/
 """
 
 import os
-import sys
 
+import sys
 from django.conf import settings
 from django.core.wsgi import get_wsgi_application
 from waitress import serve
@@ -22,4 +22,4 @@ if settings.DEBUG:
     application = get_wsgi_application()
 else:
     """If not production/debug launch the waitress host"""
-    serve(application, host='0.0.0.0', port=8000)
+    serve(application, host='0.0.0.0', port=settings.SERVER_PORT)
