@@ -21,28 +21,6 @@ Run Tests and Lint
 1. `python3 manage.py test --settings=him_database.settings.testing`
 2. `prospector`
 
-## Create docker-machine
+### Production
 
-Parallels
-```
-docker-machine create --driver=parallels \
-    --parallels-memory=2048 \
-    --parallels-cpu-count=4 \
-    default
-```
-
-Virtualbox
-```
-docker-machine create -d virtualbox \
-    default
-```
-
-
-
-## Overview of Project
-
-
-
-
-
-
+See [Heroku](https://devcenter.heroku.com/articles/getting-started-with-python#introduction) for more.
