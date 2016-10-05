@@ -30,8 +30,6 @@ loaders = [
     ]),
 ]
 
-SERVER_PORT = env('PORT')
-
 TEMPLATES[0]['OPTIONS'].update({"loaders": loaders})
 TEMPLATES[0].update({"APP_DIRS": False})
 
