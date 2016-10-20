@@ -1,6 +1,3 @@
-import logging.config
-import sys
-
 import dj_database_url
 
 from .base import *  # NOQA

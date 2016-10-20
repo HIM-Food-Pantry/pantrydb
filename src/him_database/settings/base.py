@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 from os.path import dirname, join
 
-import environ
 from django.core.urlresolvers import reverse_lazy
 
 # Build paths inside the project like this: join(BASE_DIR, "directory")
@@ -47,7 +46,14 @@ TEMPLATES = [
 ]
 
 # Use 12factor inspired environment variables or from a file
+import environ
 env = environ.Env()
+
+# Ideally move env file should be outside the git repo
+# i.e. BASE_DIR.parent.parent
+env_file = join(BASE_DIR, '..', '.env')
+if env_file:
+    environ.Env.read_env(str(env_file))
 
 # Application definition
 
